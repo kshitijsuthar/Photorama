@@ -49,6 +49,18 @@ struct FlickAPI {
         //return URL(string:"")!
     }
     
+    static func photos(fromJSON data: Data) -> PhotosResult {
+        
+        do{
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+            
+            var finalPhotos = [Photo]()
+            return .success(finalPhotos)
+        } catch let error {
+            return .failure(error)
+        }
+    }
+    
     var interestingPhotosURL: URL {
         return flickrURL(method: .interestingPhotos, parameters: ["extras": "url_h,date_taken"])
     }
