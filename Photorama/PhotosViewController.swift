@@ -12,4 +12,12 @@ class PhotosViewController: UIViewController {
     
     @IBOutlet var imageview: UIImageView!
     
+    var store: PhotoStore!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        store.fetchInterestingPhotos()
+    }
+    
 }
